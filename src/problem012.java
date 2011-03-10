@@ -14,8 +14,7 @@ public class problem012 {
 		int i = 1;
 		while (max <= 500) {
 			t = gen_triangle(i);
-
-			cur = MyMath.get_num_of_divisors(t);
+			cur = MyMath.getQuantityOfDivisors(t);
 			if(cur > max)
 				max = cur;
 			if(max > 500){

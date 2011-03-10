@@ -10,9 +10,9 @@ public class problem016 {
 		for (int i = 0; i < 1001; i++) {
 			
 			System.out.println(i+" "+
-					MyMath.sum_digs_from_str(sum)+
+					MyMath.getSumOfDigitsFromString(sum)+
 					" "+sum);
-			sum = MyMath.very_long_sum(sum, sum);
+			sum = MyMath.veryLongSum(sum, sum);
 		}
 	}
 }

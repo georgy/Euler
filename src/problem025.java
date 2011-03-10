@@ -13,7 +13,7 @@ public class problem025 {
 		while (true) {
 			a = b;
 			b = c;
-			c = MyMath.very_long_sum(a, b);
+			c = MyMath.veryLongSum(a, b);
 			cc++;
 			//System.out.println(cc+" "+c+" "+c.length());
 			if(c.length() > 999) break;

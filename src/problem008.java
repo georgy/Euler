@@ -5,8 +5,8 @@ public class problem008 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int max = 0;
-		int cur;
+		Long max = 0L;
+		Long cur;
 		String str =
 			"73167176531330624919225119674426574742355349194934" +
 			"96983520312774506326239578318016984801869478851843" +
@@ -29,7 +29,7 @@ public class problem008 {
 			"05886116467109405077541002256983155200055935729725" +
 			"71636269561882670428252483600823257530420752963450";
 		for (int i = 0; i < str.length() - 5; i++) {
-			cur = MyMath.prod_digs_from_str(str.substring(i, i+5));
+			cur = MyMath.getProductionOfDigitsFromString(str.substring(i, i+5));
 			if (cur > max)
 				max = cur;
 		}

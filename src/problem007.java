@@ -5,6 +5,6 @@ public class problem007 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(MyMath.gen_pf_by_num(10001).get(10000));
+		System.out.println(MyMath.genPrimeFactors(10001).get(10000));
 	}
 }

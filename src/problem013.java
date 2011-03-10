@@ -109,7 +109,7 @@ public class problem013 {
 		"53503534226472524250874054075591789781264330331690"};
 		String sum="0";
 		for (String s : str)
-			sum = MyMath.very_long_sum(sum, s);
+			sum = MyMath.veryLongSum(sum, s);
 		System.out.println(sum.substring(0,10));
 		//System.out.println(my_math.very_long_sum("180", "10"));
 		//System.out.println("12345".substring(1,2));

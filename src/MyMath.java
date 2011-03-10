@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MyMath {
 	
-	public static List<Integer> gen_pf_by_max(int max) {
+	public static List<Integer> genPrimeFactorsByMax(int max) {
 		List<Integer> res = new LinkedList<Integer>();
 		double q;
 		if (max < 2)
@@ -35,18 +35,18 @@ public class MyMath {
 		}
 	}
 	
-	public static List<Integer> gen_pf_by_num(int num) {
+	public static List<Integer> genPrimeFactors(int quant) {
 		List<Integer> res = new LinkedList<Integer>();
 		double q;
-		if (num < 1)
+		if (quant < 1)
 			return res;
 		else {
 			res.add(2);
-			if (num == 1)
+			if (quant == 1)
 				return res;
 			else {
 				boolean flag;
-				for (int i = 3; res.size() < num; i++) {
+				for (int i = 3; res.size() < quant; i++) {
 					flag = true;
 					q = Math.sqrt(i);
 					for (int j : res) {
@@ -65,9 +65,9 @@ public class MyMath {
 		}
 	}
 
-	public static List<Integer> expand_num_to_pf(int num) {
+	public static List<Integer> expandNumberToPrimeFactors(int num) {
 		List<Integer> res = new LinkedList<Integer>();
-		List<Integer> pf = gen_pf_by_max((int)Math.sqrt(num));
+		List<Integer> pf = genPrimeFactorsByMax((int)Math.sqrt(num));
 		for (int i : pf) {
 			while (num % i == 0) {
 				res.add(i);
@@ -79,7 +79,7 @@ public class MyMath {
 		return res;
 	}
 
-	public static List<Integer> gen_abundant_by_max(int max) {
+	public static List<Integer> genAbundantNumbersByMax(int max) {
 		// Избыточные числа - сумма делителей больше самого числа
 		List<Integer> res = new LinkedList<Integer>();
 		int sum;
@@ -93,10 +93,14 @@ public class MyMath {
 		return res;
 	}
 
-	public static int nok(int num1, int num2) {
+	/**
+	 *  НОК - наименьшее общее кратное, т.е. это наименьшее число,
+	 *  которое делится без остатка на оба исходных числа
+    */
+	public static int getLowesCommonMultiple(int num1, int num2) {
 		List<Integer> res = new LinkedList<Integer>();
-		List<Integer> l_num1 = expand_num_to_pf(num1);
-		List<Integer> l_num2 = expand_num_to_pf(num2);
+		List<Integer> l_num1 = expandNumberToPrimeFactors(num1);
+		List<Integer> l_num2 = expandNumberToPrimeFactors(num2);
 
 		res = new LinkedList<Integer>(l_num1);
 		
@@ -132,8 +136,8 @@ public class MyMath {
 		return mul;
 	}
 
-	public static int get_num_of_divisors(int num) {
-		List<Integer> fact = expand_num_to_pf(num);
+	public static int getQuantityOfDivisors(int num) {
+		List<Integer> fact = expandNumberToPrimeFactors(num);
 		List<Integer> count = new LinkedList<Integer>();
 		int p = 0;
 		if (num == 120)
@@ -152,7 +156,7 @@ public class MyMath {
 		return prod;
 	}
 
-	public static String very_long_sum(String a, String b) {
+	public static String veryLongSum(String a, String b) {
 		String sum = "";
 		int al = a.length();
 		int bl = b.length();
@@ -185,7 +189,7 @@ public class MyMath {
 		return sum;
 	}
 
-	public static String very_long_mul(String a, String b) {
+	public static String veryLongMultiplication(String a, String b) {
 		String mul = "";
 		String cur;
 		List<String> list = new LinkedList<String>();
@@ -215,18 +219,26 @@ public class MyMath {
 		mul = list.get(0);
 		if(list.size() > 1)
 			for (int i = 1; i < list.size(); i++) 
-				mul = very_long_sum(mul, list.get(i));
+				mul = veryLongSum(mul, list.get(i));
 		return mul;
 	}
+
+	public static int veryLongCompare(String a, String b) {
+		return 0;
+	}
 	
-	public static long fact(int n) {
+	public static String very_long_div(String a, String b, int e) {
+		return "";
+	}
+
+	public static long getFactorial(int n) {
 		if (n > 1)
-			return n * fact(n-1);
+			return n * getFactorial(n-1);
 		return 1;		
 	}
 
-	public static int prod_digs_from_str(String source) {
-		int mul = 1;
+	public static Long getProductionOfDigitsFromString(String source) {
+		Long mul = 1L;
 		String s;
 		for (Character c : source.toCharArray()) {
 			s = c.toString();
@@ -235,7 +247,7 @@ public class MyMath {
 		return mul;
 	}
 	
-	public static int sum_digs_from_str(String source) {
+	public static int getSumOfDigitsFromString(String source) {
 		int sum = 0;
 		String s;
 		for (Character c : source.toCharArray()) {
@@ -245,7 +257,7 @@ public class MyMath {
 		return sum;
 	}
 
-	public static String sum_to_words(int sum) {
+	public static String getSpellOfSum(int sum) {
 		String res = "";
 		if(sum == 0)
 			res = "zero";
