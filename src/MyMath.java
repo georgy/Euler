@@ -97,7 +97,7 @@ public class MyMath {
 	 *  НОК - наименьшее общее кратное, т.е. это наименьшее число,
 	 *  которое делится без остатка на оба исходных числа
     */
-	public static int getLowesCommonMultiple(int num1, int num2) {
+	public static int getLowestCommonMultiple(int num1, int num2) {
 		List<Integer> res = new LinkedList<Integer>();
 		List<Integer> l_num1 = expandNumberToPrimeFactors(num1);
 		List<Integer> l_num2 = expandNumberToPrimeFactors(num2);

@@ -7,7 +7,7 @@ public class problem005 {
 		// TODO Auto-generated method stub
 		int prod = 1;
 		for (int i = 2; i <= 20; i++)
-			prod = MyMath.getLowesCommonMultiple(i,prod);
+			prod = MyMath.getLowestCommonMultiple(i,prod);
 		System.out.println(prod);
 	}
 }
