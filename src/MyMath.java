@@ -74,7 +74,7 @@ public class MyMath {
 		return res;
 	}
 	public static List<Integer> genAbundantNumbersByMax(int max) {
-		// Избыточные числа - сумма делителей больше самого числа
+		// РР·Р±С‹С‚РѕС‡РЅС‹Рµ С‡РёСЃР»Р° - СЃСѓРјРјР° РґРµР»РёС‚РµР»РµР№ Р±РѕР»СЊС€Рµ СЃР°РјРѕРіРѕ С‡РёСЃР»Р°
 		List<Integer> res = new LinkedList<Integer>();
 		int sum;
 		for (int i = 1; i < max; i++) {
@@ -87,8 +87,8 @@ public class MyMath {
 		return res;
 	}
 	/**
-	 *  НОК - наименьшее общее кратное, т.е. это наименьшее число,
-	 *  которое делится без остатка на оба исходных числа
+	 *  РќРћРљ - РЅР°РёРјРµРЅСЊС€РµРµ РѕР±С‰РµРµ РєСЂР°С‚РЅРѕРµ, С‚.Рµ. СЌС‚Рѕ РЅР°РёРјРµРЅСЊС€РµРµ С‡РёСЃР»Рѕ,
+	 *  РєРѕС‚РѕСЂРѕРµ РґРµР»РёС‚СЃСЏ Р±РµР· РѕСЃС‚Р°С‚РєР° РЅР° РѕР±Р° РёСЃС…РѕРґРЅС‹С… С‡РёСЃР»Р°
     */
 	public static int getLowestCommonMultiple(int num1, int num2) {
 		List<Integer> res = new LinkedList<Integer>();
