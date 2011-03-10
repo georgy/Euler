@@ -7,7 +7,7 @@ public class problem023 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		List<Integer> lst = my_math.gen_abundant_by_max(30000);
+		List<Integer> lst = MyMath.gen_abundant_by_max(30000);
 		int n = lst.size();
 		boolean[] a = new boolean[30000];
 		for (int i = 0; i < n; i++) {

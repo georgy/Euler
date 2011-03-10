@@ -1,8 +1,9 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 
-public class my_math {
+public class MyMath {
 	
 	public static List<Integer> gen_pf_by_max(int max) {
 		List<Integer> res = new LinkedList<Integer>();
@@ -92,7 +93,6 @@ public class my_math {
 		return res;
 	}
 
-	
 	public static int nok(int num1, int num2) {
 		List<Integer> res = new LinkedList<Integer>();
 		List<Integer> l_num1 = expand_num_to_pf(num1);
@@ -215,7 +215,7 @@ public class my_math {
 		mul = list.get(0);
 		if(list.size() > 1)
 			for (int i = 1; i < list.size(); i++) 
-				mul = my_math.very_long_sum(mul, list.get(i));
+				mul = very_long_sum(mul, list.get(i));
 		return mul;
 	}
 	
@@ -292,4 +292,40 @@ public class my_math {
 		}
 		return res;
 	}
+
+	public static String getNextPermutation(String src) {
+		boolean flag = false;
+		int pos = 0;
+		int val = 0;
+		List<Integer> list = new LinkedList<Integer>();
+		for (int i = src.length() - 1; i > 0; i--) {
+			list.add(new Integer(src.charAt(i)-48));
+			if(src.charAt(i) > src.charAt(i-1)) {
+				list.add(new Integer(src.charAt(i-1)-48));
+				flag = true;
+				pos = i;
+				val = src.charAt(i-1) - 48;
+				break;
+			}
+		}
+		if(flag) {
+			String next = src.substring(0,pos-1);
+			Collections.sort(list);
+			int p = 0;
+			for (int i : list) {
+				if(i > val) {
+					p = list.indexOf(i);
+					break;
+				}
+			}
+			next += list.get(p).toString();
+			list.remove(p);
+			for (Integer i : list) {
+				next += i.toString();
+			}
+			return next;
+		} else
+			return null;
+	}
+
 }

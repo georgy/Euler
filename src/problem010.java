@@ -8,7 +8,7 @@ public class problem010 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		long t1 = System.currentTimeMillis();
-		List<Integer> pf = my_math.gen_pf_by_max(2000000);
+		List<Integer> pf = MyMath.gen_pf_by_max(2000000);
 		long sum = 0;
 		for (int i : pf)
 			sum += i;

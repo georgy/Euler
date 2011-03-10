@@ -29,7 +29,7 @@ public class problem008 {
 			"05886116467109405077541002256983155200055935729725" +
 			"71636269561882670428252483600823257530420752963450";
 		for (int i = 0; i < str.length() - 5; i++) {
-			cur = my_math.prod_digs_from_str(str.substring(i, i+5));
+			cur = MyMath.prod_digs_from_str(str.substring(i, i+5));
 			if (cur > max)
 				max = cur;
 		}

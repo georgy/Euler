@@ -1,3 +1,5 @@
 This repository is my solves for problems of http://projecteuler.net/
 
 This repository created also for my experiments and learning Git-technologies.
+
+For many problems used same functions, which were moved to static class MyMath.class

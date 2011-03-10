@@ -12,11 +12,11 @@ public class problem020 {
 		for (int i = 2; i < 101; i++) {
 			s1 = "0";
 			for (int j = 0; j < i; j++) {
-				s1 = my_math.very_long_sum(s1, s);
+				s1 = MyMath.very_long_sum(s1, s);
 				c++;
 			}
 			s = s1;
-			System.out.println(i+" "+s+" "+my_math.sum_digs_from_str(s)+" "+c);
+			System.out.println(i+" "+s+" "+MyMath.sum_digs_from_str(s)+" "+c);
 		}
 	}
 }
