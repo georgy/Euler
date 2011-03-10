@@ -1,7 +1,4 @@
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
+import java.util.*;
 
 public class MyMath {
 	
@@ -34,7 +31,6 @@ public class MyMath {
 			}
 		}
 	}
-	
 	public static List<Integer> genPrimeFactors(int quant) {
 		List<Integer> res = new LinkedList<Integer>();
 		double q;
@@ -64,7 +60,6 @@ public class MyMath {
 			}
 		}
 	}
-
 	public static List<Integer> expandNumberToPrimeFactors(int num) {
 		List<Integer> res = new LinkedList<Integer>();
 		List<Integer> pf = genPrimeFactorsByMax((int)Math.sqrt(num));
@@ -78,7 +73,6 @@ public class MyMath {
 			res.add(num);
 		return res;
 	}
-
 	public static List<Integer> genAbundantNumbersByMax(int max) {
 		// Избыточные числа - сумма делителей больше самого числа
 		List<Integer> res = new LinkedList<Integer>();
@@ -92,7 +86,6 @@ public class MyMath {
 		}
 		return res;
 	}
-
 	/**
 	 *  НОК - наименьшее общее кратное, т.е. это наименьшее число,
 	 *  которое делится без остатка на оба исходных числа
@@ -135,7 +128,6 @@ public class MyMath {
 		}
 		return mul;
 	}
-
 	public static int getQuantityOfDivisors(int num) {
 		List<Integer> fact = expandNumberToPrimeFactors(num);
 		List<Integer> count = new LinkedList<Integer>();
@@ -155,8 +147,7 @@ public class MyMath {
 			prod *= i;
 		return prod;
 	}
-
-	public static String veryLongSum(String a, String b) {
+	public static String getVeryLongSum(String a, String b) {
 		String sum = "";
 		int al = a.length();
 		int bl = b.length();
@@ -188,7 +179,6 @@ public class MyMath {
 			sum = "1" + sum;
 		return sum;
 	}
-
 	public static String veryLongMultiplication(String a, String b) {
 		String mul = "";
 		String cur;
@@ -219,24 +209,94 @@ public class MyMath {
 		mul = list.get(0);
 		if(list.size() > 1)
 			for (int i = 1; i < list.size(); i++) 
-				mul = veryLongSum(mul, list.get(i));
+				mul = getVeryLongSum(mul, list.get(i));
 		return mul;
 	}
-
-	public static int veryLongCompare(String a, String b) {
-		return 0;
+	/**
+	 * Result: (a > b) = 1; (a < b) = -1; (a = b) = 0;
+	 * */
+	public static int getVeryLongCompare(String a, String b) {
+		if(a.equals(b))
+			return 0;
+		else {
+			int result = 0;
+			boolean minus = false;
+			if(a.charAt(0) == 45 && b.charAt(0) != 45) return -1;
+			if(a.charAt(0) != 45 && b.charAt(0) == 45) return 1;
+			if(a.charAt(0) == 45 && b.charAt(0) == 45) { 
+				minus = true;
+				a = a.substring(1,a.length());
+				b = b.substring(1,b.length());
+			}
+			if (a.charAt(0) == 46) a = "0" + a;
+			if (b.charAt(0) == 46) b = "0" + b;
+			while(a.charAt(0) == 48 && a.charAt(1) != 46)
+				a = a.substring(1,a.length());
+			while(b.charAt(0) == 48 && b.charAt(1) != 46)
+				b = b.substring(1,b.length());
+			boolean done = false;
+			int aPointPos = a.indexOf(".");
+			int bPointPos = b.indexOf(".");
+			int aLength = a.length();
+			int bLength = b.length();
+			int aIntegerPart = aLength; 
+			int bIntegerPart = bLength;
+			int aCurDigit = 0;
+			int bCurDigit = 0;
+			if (aPointPos > -1) {
+				aIntegerPart = aPointPos;
+			}
+			if (bPointPos > -1) {
+				bIntegerPart = bPointPos;
+			}
+			if (aIntegerPart != bIntegerPart) {
+				done = true;
+				if(aIntegerPart > bIntegerPart)	result = 1;
+				else result = -1;
+			} else {
+				for (int i = 0; i < aIntegerPart; i++) {
+					aCurDigit = a.charAt(i) - 48;
+					bCurDigit = b.charAt(i) - 48;
+					if(aCurDigit != bCurDigit) {
+						done = true;
+						if(aCurDigit > bCurDigit) { result = 1; }
+						else { result = -1; }
+						break;
+					}
+				}
+				int maxFloatPart = Math.max(aLength - aIntegerPart - 1, bLength - bIntegerPart - 1);
+				if(!done) {
+					for (int i = 0; i < maxFloatPart; i++) {
+						if(aLength < aIntegerPart + i + 2) {
+							aCurDigit = 0;
+						} else {
+							aCurDigit = a.charAt(aIntegerPart + i + 1) - 48;
+						}
+						if(bLength < bIntegerPart + i + 2) {
+							bCurDigit = 0;
+						} else {
+							bCurDigit = b.charAt(bIntegerPart + i + 1) - 48;
+						}
+						if(aCurDigit != bCurDigit) {
+							done = true;
+							if(aCurDigit > bCurDigit) { result = 1; }
+							else { result = -1; }
+						}
+					}
+				}
+			}
+			if(minus) result = 0 - result;
+			return result;
+		}
 	}
-	
 	public static String very_long_div(String a, String b, int e) {
 		return "";
 	}
-
 	public static long getFactorial(int n) {
 		if (n > 1)
 			return n * getFactorial(n-1);
 		return 1;		
 	}
-
 	public static Long getProductionOfDigitsFromString(String source) {
 		Long mul = 1L;
 		String s;
@@ -246,7 +306,6 @@ public class MyMath {
 		}
 		return mul;
 	}
-	
 	public static int getSumOfDigitsFromString(String source) {
 		int sum = 0;
 		String s;
@@ -256,7 +315,6 @@ public class MyMath {
 		}
 		return sum;
 	}
-
 	public static String getSpellOfSum(int sum) {
 		String res = "";
 		if(sum == 0)
@@ -304,7 +362,6 @@ public class MyMath {
 		}
 		return res;
 	}
-
 	public static String getNextPermutation(String src) {
 		boolean flag = false;
 		int pos = 0;

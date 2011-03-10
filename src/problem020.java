@@ -12,7 +12,7 @@ public class problem020 {
 		for (int i = 2; i < 101; i++) {
 			s1 = "0";
 			for (int j = 0; j < i; j++) {
-				s1 = MyMath.veryLongSum(s1, s);
+				s1 = MyMath.getVeryLongSum(s1, s);
 				c++;
 			}
 			s = s1;

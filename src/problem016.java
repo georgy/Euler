@@ -12,7 +12,7 @@ public class problem016 {
 			System.out.println(i+" "+
 					MyMath.getSumOfDigitsFromString(sum)+
 					" "+sum);
-			sum = MyMath.veryLongSum(sum, sum);
+			sum = MyMath.getVeryLongSum(sum, sum);
 		}
 	}
 }
